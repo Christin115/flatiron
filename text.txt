@@ -1,22 +1,24 @@
-START App
-Sign In
-Open Savings Goal Menu
-
-INPUT user_id, savings_goal, target_amount, target_date, amount_saved
+START PROGRAM
 
 CREATE user savings goal
 
-STORE user_id, savings_goal, target_amount, target_date, amount_saved
+INPUT user_id
+INPUT savings_goal
+INPUT target_amount
+INPUT target_date
+INPUT amount_saved
+
+STORE user_id
+STORE savings_goal
+STORE target_amount
+STORE target_date
+STORE amount_saved
 
 DISPLAY "Savings goal created successfully"
 
-RETRIEVE savings goal information
-
-RETURN savings goal details
-
 WHILE amount_saved < target_amount
 
-    DISPLAY "Enter deposit amount"
+    DISPLAY "Enter updated savings amount"
     INPUT deposit_amount
 
     UPDATE amount_saved = amount_saved + deposit_amount
@@ -27,23 +29,23 @@ WHILE amount_saved < target_amount
 
     RETURN remaining_amount
 
-    DISPLAY "Amount Saved:", amount_saved
+    DISPLAY "Current Savings:", amount_saved
     DISPLAY "Remaining Amount:", remaining_amount
 
     IF amount_saved >= target_amount THEN
 
-        UPDATE goal_status = "Completed"
+        SET goal_status = "Completed"
 
         RETURN goal_status
 
-        COMPOSE completion notification
+        COMPOSE completion message
 
-        SEND message:
-        "Congratulations! You reached your savings goal."
+        SEND notification:
+        "Congratulations! Your savings goal has been reached."
 
     ELSE
 
-        UPDATE goal_status = "In Progress"
+        SET goal_status = "In Progress"
 
         RETRIEVE current_date
 
@@ -51,17 +53,17 @@ WHILE amount_saved < target_amount
 
         IF days_remaining <= 7 THEN
 
-            COMPOSE reminder notification
+            COMPOSE reminder message
 
-            SEND message:
+            SEND notification:
             "Reminder: Your savings goal deadline is approaching."
 
-
+        ENDIF
 
     ENDIF
 
 ENDWHILE
 
-DISPLAY "Savings goal tracking complete"
+DISPLAY "Goal tracking complete"
 
 END PROGRAM
