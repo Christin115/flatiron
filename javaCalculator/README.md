@@ -37,3 +37,4 @@ Divides two numbers.
 Displays all stored calculations.
 
 ### displayCalculation(index)
+Displays a specfic calculation from the history
