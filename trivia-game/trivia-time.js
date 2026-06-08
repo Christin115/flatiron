@@ -4,4 +4,4 @@
 
 const startGame = require("./game");
 
-startGame();
+startGame();babel

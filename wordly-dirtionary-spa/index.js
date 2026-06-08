@@ -1,5 +1,4 @@
 // Select Elements
-
 const form = document.getElementById("search-form");
 const input = document.getElementById("word-input");
 const errorMessage = document.getElementById("error-message");
@@ -38,7 +37,6 @@ async function fetchWordData(word) {
   clearResults();
 
   try {
-
     const response = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
     );
@@ -54,9 +52,7 @@ async function fetchWordData(word) {
     displayWordData(data[0]);
 
   } catch (error) {
-
     displayError(error.message);
-
   }
 
 }
@@ -65,14 +61,10 @@ async function fetchWordData(word) {
 // Display Word Data
 
 function displayWordData(data) {
-
   // Word Title
-
   wordTitle.textContent = data.word;
 
-
   // Pronunciation
-
   const phoneticText =
     data.phonetics[0]?.text || "No pronunciation available";
 
@@ -81,29 +73,24 @@ function displayWordData(data) {
 
 
   // Meaning Information
-
   const meaning = data.meanings[0];
   const definitionData = meaning.definitions[0];
 
   // Part of Speech
-
   partOfSpeech.textContent =
     `Part of Speech: ${meaning.partOfSpeech}`;
 
   // Definition
-
   definition.textContent =
     `Definition: ${definitionData.definition}`;
 
   // Example
-
   example.textContent =
     `Example: ${
       definitionData.example || "No example available"
     }`;
 
   // Synonyms
-
   if (
     definitionData.synonyms &&
     definitionData.synonyms.length > 0
@@ -154,7 +141,7 @@ function displayError(message) {
 function clearResults() {
 
   errorMessage.textContent = "";
-
+  
   wordTitle.textContent = "";
 
   pronunciation.textContent = "";
