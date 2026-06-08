@@ -20,9 +20,7 @@ let currentQuestionIndex = 0;
 let gameOver = false;
 
 
-// ===============================
 // Validate Answer
-// ===============================
 
 function validateAnswer(userAnswer, correctAnswer) {
 
@@ -41,9 +39,7 @@ function validateAnswer(userAnswer, correctAnswer) {
 }
 
 
-// ===============================
 // End Game
-// ===============================
 
 function endGame(timer) {
 
@@ -81,9 +77,7 @@ function endGame(timer) {
 }
 
 
-// ===============================
 // Ask Questions
-// ===============================
 
 function askQuestion(timerData) {
 
@@ -157,9 +151,7 @@ function askQuestion(timerData) {
 }
 
 
-// ===============================
 // Start Game
-// ===============================
 
 function startGame() {
 
